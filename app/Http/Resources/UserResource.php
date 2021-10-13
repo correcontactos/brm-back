@@ -30,6 +30,7 @@ class UserResource extends JsonResource
         return [
             'id' => $request->id,
             'user' => $request->user,
+            'privilege_id' => $request->privilege_id, 
             'privilege' => (Privilege::select('name')->where('id', $request->privilege_id)->first() == null ? null : Privilege::select('name')->where('id', $request->privilege_id)->first()['name']),
             'access' => (Privilege::select('access')->where('id', $request->privilege_id)->first() == null ? null : Privilege::select('access')->where('id', $request->privilege_id)->first()['access'])   
         ];
